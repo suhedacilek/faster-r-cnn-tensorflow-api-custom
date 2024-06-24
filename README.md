@@ -1,14 +1,15 @@
 # Faster R-CNN with TensorFlow Object Detection API
 
-## Creating Anaconda Environment and Requirements
+## 📌Creating Anaconda Environment and Requirements
 	conda create -n myenv python=3.6
+	conda install tensorflow-gpu==1.15.0
 	conda install -c anaconda protobuf
-
-After cloning this repo, upload from within the requirements.txt file.
+	
+After cloning this repo, upload requirement versions from the requirements.txt file.
 
     pip install -r requirements.txt
     
-## Directory
+## 📌Directory
 
 ### Step 1
 Download the Tensorflow model file from the link below. We will do the work in this directory. Upload this repo as .zip and unzipped into the directory where you will be working.
@@ -23,12 +24,20 @@ Move the model in the repo, the file faster_rcnn_inception_v2_coco_2018_01_28 to
 **NOTE** 📝 To find the missing files in the object_detection directory, move the missing files models/research/object_detection like in the object_detection.rar 
 
 ### Step 3
+📣**Way 1:** Specify pythonpathi in system environment variables. And create new system variable 
+>variable name: PYTHONPATH
+>
+>variable: C:\tensorflow\models;C:\tensorflow\models\research;C:\tensorflow\models\research\slim
 
+📣**Way 2:** Set environment in Command Prompt with command below.
+>SET PYTHONPATH=C:\tensorflowapi\models;C:\tensorflowapi\models\research;C:\tensorflowapi\models\research\slim
+
+### Step 4  
 Run the following commands in the model/research directory.
 
 **NOTE** 📝 Can be duplicates in command below.
 
-    protoc --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto  .\object_detection\protos\box_coder.proto  .\object_detection\protos\box_predictor.proto  .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto  .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\flexible_grid_anchor_generator.proto  .\object_detection\protos\calibration.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\multiscale_anchor_generator.proto .\object_detection\protos\graph_rewriter.proto ./object_detection/protos/anchor_generator.proto ./object_detection/protos/argmax_matcher.proto ./object_detection/protos/bipartite_matcher.proto ./object_detection/protos/box_coder.proto ./object_detection/protos/box_predictor.proto ./object_detection/protos/eval.proto ./object_detection/protos/faster_rcnn.proto ./object_detection/protos/faster_rcnn_box_coder.proto ./object_detection/protos/hyperparams.proto ./object_detection/protos/image_resizer.proto ./object_detection/protos/input_reader.proto ./object_detection/protos/losses.proto ./object_detection/protos/matcher.proto ./object_detection/protos/mean_stddev_box_coder.proto ./object_detection/protos/model.proto ./object_detection/protos/optimizer.proto ./object_detection/protos/pipeline.proto ./object_detection/protos/post_processing.proto ./object_detection/protos/preprocessor.proto ./object_detection/protos/region_similarity_calculator.proto ./object_detection/protos/square_box_coder.proto ./object_detection/protos/ssd.proto ./object_detection/protos/ssd_anchor_generator.proto ./object_detection/protos/string_int_label_map.proto ./object_detection/protos/train.proto ./object_detection/protos/keypoint_box_coder.proto ./object_detection/protos/multiscale_anchor_generator.proto ./object_detection/protos/graph_rewriter.proto ./object_detection/protos/calibration.proto ./object_detection/protos/flexible_grid_anchor_generator.proto ./object_detection/protos/center_net.proto .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto  .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\multiscale_anchor_generator.proto .\object_detection\protos\graph_rewriter.proto .\object_detection\protos\fpn.proto` ./object_detection/protos/anchor_generator.proto ./object_detection/protos/argmax_matcher.proto ./object_detection/protos/bipartite_matcher.proto ./object_detection/protos/box_coder.proto ./object_detection/protos/box_predictor.proto ./object_detection/protos/eval.proto ./object_detection/protos/faster_rcnn.proto ./object_detection/protos/faster_rcnn_box_coder.proto ./object_detection/protos/grid_anchor_generator.proto ./object_detection/protos/hyperparams.proto ./object_detection/protos/image_resizer.proto ./object_detection/protos/input_reader.proto ./object_detection/protos/losses.proto ./object_detection/protos/matcher.proto ./object_detection/protos/mean_stddev_box_coder.proto ./object_detection/protos/model.proto ./object_detection/protos/optimizer.proto ./object_detection/protos/pipeline.proto ./object_detection/protos/post_processing.proto ./object_detection/protos/preprocessor.proto ./object_detection/protos/region_similarity_calculator.proto ./object_detection/protos/square_box_coder.proto ./object_detection/protos/ssd.proto ./object_detection/protos/ssd_anchor_generator.proto ./object_detection/protos/string_int_label_map.proto ./object_detection/protos/train.proto ./object_detection/protos/keypoint_box_coder.proto ./object_detection/protos/multiscale_anchor_generator.proto ./object_detection/protos/graph_rewriter.proto ./object_detection/protos/calibration.proto ./object_detection/protos/flexible_grid_anchor_generator.proto ./object_detection/protos/center_net.proto
+    protoc --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto  .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\flexible_grid_anchor_generator.proto .\object_detection\protos\calibration.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\multiscale_anchor_generator.proto .\object_detection\protos\graph_rewriter.proto .\object_detection\protos\center_net.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\fpn.proto .\object_detection\protos\target_assigner.proto
 
 Move the [setup.py](https://github.com/dilaraozdemir/repo/setup.py)  file under the model/research folder. Then run the following commands in models/research directory to run the [setup.py](https://github.com/dilaraozdemir/repo/setup.py) file we moved.
 
@@ -55,14 +64,14 @@ Type your classes in the generate_tfrecord.py file as below.
 
 Run the code below in models/research/object_detection directory. 
 
-    python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
+    python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
 
-    python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
+    python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record
 
 ### Step 4 : Creating labelmap.pbtxt
 
- - The first thing to do in this step is to move files faster_rcnn_inception_v2_pets.config, graph.pbtxt into models / research / object_detection / training directory.
- - Then a file named labelmap.pbtxt should be created in models / research / object_detection / training directory.
+ - The first thing to do in this step is to move files faster_rcnn_inception_v2_pets.config, graph.pbtxt into models/research/object_detection/training directory.
+ - Then a file named labelmap.pbtxt should be created in models/research/object_detection/training directory.
 
 ⚠️ **The extension of the labelmap file must be .pbtxt.**
 
@@ -78,6 +87,7 @@ item
 **NOTE** 📝 Before the training models/research/object_detection/training folder must contain faster_rcnn_inception_v2_pets.config, graph.pbtxt, labelmap.pbtxt
 
 ### Step 5
+Change lines in faster_rcnn_inception_v2_pets.config as below in models/research/object_detection/training directory.
 
  - Line 9:  # write your class count
 ```
@@ -129,12 +139,14 @@ It will show like the following image.
 
 **Example:**
 The number of my model, which was formed after the training I did, was "0" as follows.
+
 ![image](/images/inference_graph.jpg)
 
 ### Test Image
 ### Step 1
 Write the IDLE to your command and you will see screen like in the follow.
-![image](/images/idle.jpg)
+
+![image](/images/idlenew.jpg)
 
 ### Step 2
 Choose File/Open... from the left corner of the idle. Selec the Object_detection_image.py file in directory models/research/object_detection from the screen that opens.
@@ -154,10 +166,14 @@ Write the number of classes the object detector can identify.
 Press F5 to Run Module.
 
 
-
 ## Maintainers
 
- - Dilara Özdemir ([@GitHub dilaraozdemir](https://github.com/dilaraozdemir))
+ - Dilara Ozdemir ([@GitHub dilaraozdemir](https://github.com/dilaraozdemir))
  - Buse Yaren Tekin ([@GitHub buseyarentekin](https://github.com/buseyarentekin))
- - Elif Meşeci ([@GitHub elifmeseci](https://github.com/elifmeseci))
- - Süheda Çilek ([@GitHub suhedacilek](https://github.com/suhedacilek))
+ - Elif Meseci ([@GitHub elifmeseci](https://github.com/elifmeseci))
+ - Süheda Cilek ([@GitHub suhedacilek](https://github.com/suhedacilek))
+ - 
+**NOTE** 📝  If there is a problem with the displaying Accuracy metric, you have to set up the file according to right version of Tensorflow Model.
+
+**NOTE** 📝 You can reach from ([here](https://dilaraozdemir.medium.com/kendi-veri-k%C3%BCmeniz-ile-tensorflow-object-detection-api-kullanarak-faster-r-cnn-uygulamas%C4%B1-1e6114edf280)) the instructions in Turkish language.
+
